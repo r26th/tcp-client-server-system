@@ -2,7 +2,7 @@
 import socket
 import time
 
-SERVER_IP = "192.168.8.122"   # استبدليها بـ IP جهاز السيرفر داخل LAN
+SERVER_IP = "192.168.8.122"  
 PORT = 5000
 
 def main():

@@ -2,8 +2,8 @@
 import socket
 import threading
 
-HOST = "192.168.8.122"   # استمع على كل الواجهات؛ أو استبدليها بـ IP الخاص بالجهاز
-PORT = 5000        # رقم البورت المتفق عليه
+HOST = "192.168.8.122"   
+PORT = 5000        
 
 def handle_client(conn, addr):
     print(f"[NEW CONNECTION] {addr} connected.")
@@ -20,7 +20,7 @@ def handle_client(conn, addr):
                     print(f"[CLOSE REQUEST] from {addr}")
                     break
 
-                # نتوقع الرسالة بالشكل: "base exponent" مثال: "2 5"
+                
                 parts = message.split()
                 if len(parts) != 2:
                     conn.sendall("ERROR: Send exactly two integers: <base> <exponent>".encode())
@@ -33,7 +33,7 @@ def handle_client(conn, addr):
                     conn.sendall("ERROR: base and exponent must be integers.".encode())
                     continue
 
-                # حساب الأس
+                
                 try:
                     result = pow(base, exponent)  # efficient built-in (big ints supported)
                 except OverflowError:
