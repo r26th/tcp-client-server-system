@@ -23,14 +23,14 @@ def handle_client(conn, addr):
                 
                 parts = message.split()
                 if len(parts) != 2:
-                    conn.sendall("ERROR: Send exactly two Number: <base> <exponent>".encode())
+                    conn.sendall("ERROR: Send exactly two Numbers: <base> <exponent>".encode())
                     continue
 
                 try:
                     base = float(parts[0])
                     exponent = float(parts[1])
                 except ValueError:
-                    conn.sendall("ERROR: base and exponent must be Number.".encode())
+                    conn.sendall("ERROR: base and exponent must be Numbers.".encode())
                     continue
 
                 
