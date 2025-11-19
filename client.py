@@ -13,7 +13,7 @@ def main():
 
     try:
         while True:
-            user = input("Enter base and exponent (e.g. 2 5), or 'exit' to close: ").strip()
+            user = input("Enter base and exponent numbers in this order: <base> <exponent>, or 'exit' to close: ").strip()
             if not user:
                 continue
 
