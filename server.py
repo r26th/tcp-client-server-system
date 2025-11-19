@@ -27,8 +27,8 @@ def handle_client(conn, addr):
                     continue
 
                 try:
-                    base = int(parts[0])
-                    exponent = int(parts[1])
+                    base = float(parts[0])
+                    exponent = float(parts[1])
                 except ValueError:
                     conn.sendall("ERROR: base and exponent must be integers.".encode())
                     continue
