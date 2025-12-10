@@ -6,7 +6,9 @@ import threading
 HOST = "172.20.10.4"  # IP address of the server
 PORT = 5000             # Port number to listen on        
 
-# This function handles communication with the client
+# This function handles communication with the client. finction args: 
+# conn (socket): Active client connection socket
+# addr (tuple): Client address as (IP, port)
 def handle_client(conn, addr):
     print(f"[NEW CONNECTION] {addr} connected.")  # Print a message when a new connection is made
     with conn:  # Automatically closes the connection when the block ends
@@ -47,8 +49,8 @@ def handle_client(conn, addr):
                     continue
 
                 try:
-                    # Calculate base raised to the power of exponent
-                    result = pow(base, exponent)  # Efficient built-in function, supports large numbers (big ints)
+                    # Calculate base^exponent using pow() built-in function
+                    result = pow(base, exponent) 
                 except OverflowError:
                     # If the result is too large to compute, send an error message
                     conn.sendall("ERROR: result too large to compute.".encode())
@@ -58,7 +60,7 @@ def handle_client(conn, addr):
                 reply = str(result)
                 conn.sendall(reply.encode())
                 
-                # Print the request and result for logging
+                # Print the request and result size for monitoring
                 print(f"[REQUEST] {addr} -> {base}^{exponent} = (sent result, {len(reply)} bytes)")
             except ConnectionResetError:
                 # If the connection is reset by the client, log the error
