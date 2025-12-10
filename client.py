@@ -3,7 +3,7 @@ import socket
 import time
 
 # Define server IP and port to connect to
-SERVER_IP = "192.168.8.122"  # IP address of the server
+SERVER_IP = "172.20.10.4"  # IP address of the server
 PORT = 5000                 # Port number to connect to
 
 # Main function to run the client

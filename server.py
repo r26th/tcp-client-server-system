@@ -3,8 +3,8 @@ import socket
 import threading
 
 # Define server host and port
-HOST = "192.168.8.122"  # IP address of the server
-PORT = 5000             # Port number to listen on
+HOST = "172.20.10.4"  # IP address of the server
+PORT = 5000             # Port number to listen on        
 
 # This function handles communication with the client
 def handle_client(conn, addr):
