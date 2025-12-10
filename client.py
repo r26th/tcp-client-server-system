@@ -2,7 +2,7 @@
 import socket
 import time
 
-SERVER_IP = "192.168.8.122"  
+SERVER_IP = "172.20.10.4"  
 PORT = 5000
 
 def main():
