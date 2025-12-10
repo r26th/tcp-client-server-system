@@ -76,7 +76,7 @@ def handle_client(conn, addr):
 
 # This function starts the server and listens for incoming client connections
 def start_server():
-    # Create a new socket object for the server
+    #Create the server TCP socket for IPv4 client connections
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     
     # Bind the server socket to the specified host and port
@@ -92,7 +92,7 @@ def start_server():
         # Create a new thread to handle the client connection
         thread = threading.Thread(target=handle_client, args=(conn, addr), daemon=True)
         thread.start()  # Start the thread
-        print(f"[ACTIVE CONNECTIONS] {threading.active_count()-1}")  # Print number of active connections
+        print(f"[ACTIVE CONNECTIONS] {threading.active_count()-1}")  # Print number of active connections (total threads - 1 for main thread)
 
 # Main entry point to start the server
 if __name__ == "__main__":
