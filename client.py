@@ -8,8 +8,8 @@ PORT = 5000                 # Port number to connect to
 
 # Main function to run the client
 def main():
-    print("Client started.")  # Print when the client starts
-    # Create a new socket object for the client
+    print("Client started.")  
+    # Create TCP socket for IPv4 connection to server
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # Connect to the server using the provided IP and port
     client.connect((SERVER_IP, PORT))
@@ -23,13 +23,13 @@ def main():
             if not user:  # Skip if input is empty
                 continue
 
-            # Send the user input to the server
+            
             start = time.perf_counter()  # Start measuring round-trip time (RTT)
-            client.sendall(user.encode())
+            client.sendall(user.encode()) # Send the user input to the server
 
             # Receive data (the result) from the server
             data = client.recv(65536)  # Use large buffer size to handle large results
-            end = time.perf_counter()  # End measuring round-trip time (RTT)
+            end = time.perf_counter()  # End measuring (RTT)
 
             if not data:  # If no data is received, print a message and break
                 print("No response (server may have closed connection).")
@@ -37,9 +37,9 @@ def main():
 
             # Decode and print the server's reply
             reply = data.decode()
-            rtt = end - start  # Calculate the round-trip time (RTT)
+            RTT = end - start  # Calculate the (RTT)
             print(f"Server reply: {reply}")  # Print the server's response
-            print(f"RTT: {rtt:.6f} seconds\n")  # Print the round-trip time in seconds
+            print(f"RTT: {RTT:.6f} seconds\n")  # Print RTT in seconds
 
             # Exit the loop if the user types "exit"
             if user.lower() == "exit":
