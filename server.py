@@ -2,7 +2,7 @@
 import socket
 import threading
 
-HOST = "192.168.8.122"   
+HOST = "172.20.10.4"   
 PORT = 5000        
 
 def handle_client(conn, addr):
