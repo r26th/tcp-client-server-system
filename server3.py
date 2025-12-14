@@ -9,7 +9,7 @@ PORT = 5000
 # conn is client socket 
 # addr is tuple for client address as (IP, port)
 def handle_client(conn, addr):
-    print(f"[NEW CONNECTION] {addr} connected.")  
+    print(f"[NEW CONNECTION] {addr} connected")  
     with conn:  # close connection if block ends
         while True:
             try:
@@ -18,7 +18,7 @@ def handle_client(conn, addr):
                 
                 # If no data received (as client disconnect without send exit)
                 if not data:
-                    print(f"[DISCONNECTED] {addr} closed the socket.")
+                    print(f"[DISCONNECTED] {addr} closed the socket")
                     break
                 
                 # decode received data and strip white spaces
@@ -43,7 +43,7 @@ def handle_client(conn, addr):
                     exponent = float(parts[1])
                 except ValueError:
                     # If not numbers: send error msg
-                    conn.sendall("ERROR: base and exponent must be numbers.".encode())
+                    conn.sendall("ERROR: base and exponent must be numbers".encode())
                     continue
 
                 try:
@@ -103,4 +103,5 @@ def start_server():
 
 if __name__ == "__main__":
     start_server()
+
 
