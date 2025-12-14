@@ -66,14 +66,10 @@ def handle_client(conn, addr):
 
     print(f"[END] connection with {addr}")
 
-# start server and listen to client connections
 def start_server():
-    #create server TCP socket for IPv4 client connections
-    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # bind the server socket to the host and port
-    server.bind((HOST, PORT))
-    # listen for connections
-    server.listen()
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #create server TCP socket for IPv4 client connections
+    server.bind((HOST, PORT)) # bind the server socket to the host and port
+    server.listen() # listen for connections
     print(f"[LISTENING] Server listening on {HOST}:{PORT}")
     
     # timeout to see if Ctrl+C interrupt
@@ -103,5 +99,6 @@ def start_server():
 
 if __name__ == "__main__":
     start_server()
+
 
 
